@@ -12,15 +12,16 @@ export default function Home() {
     useEffect(() => {
       if(countdown > 0){
         const timer = setTimeout(() => {
-          console.log('1 minute has passed');
            setcount(countdown -1);
-          // setShow(true)
         }, 1000); // 60000 milliseconds = 1 minute
+          setShow(true)
         return () => clearTimeout(timer); // This clears the timer when the component unmounts
   
       }
+      countdown === 1 ? countdown + 10 : countdown
+
   
-    }, [countdown]);
+    }, [countdown , show]);
   
   return (
     <main className="flex min-h-screen flex-col items-center  p-24">
